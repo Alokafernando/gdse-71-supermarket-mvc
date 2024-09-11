@@ -4,6 +4,9 @@
  */
 package edu.ijse.mvc;
 
+import edu.ijse.mvc.view.CustomerView;
+
+
 
 /**
  *
@@ -16,5 +19,9 @@ public class Main {
      */
     public static void main(String[] args) {
       
+        CustomerView custview = new CustomerView();
+        custview.setLocationRelativeTo(null);
+        custview.setVisible(true);
+        
     }
 }

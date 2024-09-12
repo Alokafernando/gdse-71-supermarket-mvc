@@ -4,7 +4,8 @@
  */
 package edu.ijse.mvc;
 
-import edu.ijse.mvc.view.CustomerView;
+import edu.ijse.mvc.view.LayoutFrame;
+
 
 
 
@@ -18,10 +19,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-      
-        CustomerView custview = new CustomerView();
-        custview.setLocationRelativeTo(null);
-        custview.setVisible(true);
+        LayoutFrame layoutFrame = new LayoutFrame();
+        layoutFrame.setVisible(true);
+        
         
     }
 }

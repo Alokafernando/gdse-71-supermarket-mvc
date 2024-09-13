@@ -34,6 +34,10 @@ public class customerDto {
         this.postalcode = postalcode;
     }
 
+    public customerDto(String string, String string0, String string1, double aDouble, int aInt) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * @return the it
      */

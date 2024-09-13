@@ -93,7 +93,7 @@ public class CustomerModel {
     
     public String updateCustomer(customerDto dto) throws ClassNotFoundException, SQLException{
         Connection connection = DBConnection.getInstance().getConnection();
-        String sql = "UPDATE customer SET CustTitle = ?, CustName = ?, DOB = ?, salary = ?, CustAddress = ?, City = ?, Province = ?, PostalCode = ? WHRERE CustID = ?;";
+        String sql = "UPDATE customer SET CustTitle = ?, CustName = ?, DOB = ?, salary = ?, CustAddress = ?, City = ?, Province = ?, PostalCode = ? WHERE CustID = ?;";
         PreparedStatement statement = connection.prepareStatement(sql); 
         
 
@@ -111,12 +111,12 @@ public class CustomerModel {
         return resp > 0 ? "Updated" : "Fail";
     }
     
-    public String deleteCustomer(String id) throws ClassNotFoundException, SQLException{
+    public String deleteCustomer(customerDto dto) throws ClassNotFoundException, SQLException{
         Connection connection = DBConnection.getInstance().getConnection();
         String sql = "DELETE FROM customer WHERE CustID = ? LIMIT 1;";
         PreparedStatement statement = connection.prepareStatement(sql); 
         
-        statement.setString(1, id);
+        statement.setString(1, dto.getId());
         
         int resp = statement.executeUpdate();
         return resp > 0 ? "Deleted" : "Fail" ;

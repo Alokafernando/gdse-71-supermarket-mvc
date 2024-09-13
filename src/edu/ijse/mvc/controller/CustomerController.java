@@ -42,8 +42,8 @@ public class CustomerController {
         return resp;
     }
     
-    public String deleteCustomer(String id) throws ClassNotFoundException, SQLException{
-        String resp = CUSTOMER_MODEL.deleteCustomer(id);
+    public String deleteCustomer(customerDto dto) throws ClassNotFoundException, SQLException{
+        String resp = CUSTOMER_MODEL.deleteCustomer(dto);
         return resp;
     }
 }

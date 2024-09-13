@@ -6,7 +6,6 @@ package edu.ijse.mvc.view;
 
 import edu.ijse.mvc.controller.CustomerController;
 import edu.ijse.mvc.dto.customerDto;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -238,7 +237,7 @@ public class CustomerPanel extends javax.swing.JPanel {
                             .addComponent(lblname, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(61, 61, 61))
                             .addGroup(layout.createSequentialGroup()
@@ -251,9 +250,9 @@ public class CustomerPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(btnSave)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addGap(18, 18, 18))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 727, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,14 +302,14 @@ public class CustomerPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblcode))
-                .addGap(45, 45, 45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 76, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -460,7 +459,7 @@ public class CustomerPanel extends javax.swing.JPanel {
                 txtprovince.setText(customerDto.getProvinve());
                 txtcode.setText(customerDto.getPostalcode());
             }else{
-                JOptionPane.showMessageDialog(this, "Item Not Found");
+                JOptionPane.showMessageDialog(this, "Customer Not Found");
             }
         }catch(Exception e){
             JOptionPane.showMessageDialog(this, e.getMessage());
@@ -501,10 +500,9 @@ public class CustomerPanel extends javax.swing.JPanel {
                 txtcity.getText(),
                 txtprovince.getText(),
                  txtcode.getText());
-            
-            
+                      
             try {
-               String resp = CUSTOMER_CONTROLLER.deleteCustomer(TOOL_TIP_TEXT_KEY);
+               String resp = CUSTOMER_CONTROLLER.deleteCustomer(customerDto);
                JOptionPane.showMessageDialog(this, resp);
                loadTable();
                clearForm();

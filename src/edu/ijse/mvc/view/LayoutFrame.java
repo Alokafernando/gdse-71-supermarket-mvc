@@ -29,6 +29,7 @@ public class LayoutFrame extends javax.swing.JFrame {
         navigationpanel = new javax.swing.JPanel();
         btncustomer = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        btnOrder = new javax.swing.JButton();
         headerpanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         bodypanel = new javax.swing.JPanel();
@@ -51,6 +52,13 @@ public class LayoutFrame extends javax.swing.JFrame {
             }
         });
 
+        btnOrder.setText("Manage Order");
+        btnOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout navigationpanelLayout = new javax.swing.GroupLayout(navigationpanel);
         navigationpanel.setLayout(navigationpanelLayout);
         navigationpanelLayout.setHorizontalGroup(
@@ -59,7 +67,8 @@ public class LayoutFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(navigationpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btncustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         navigationpanelLayout.setVerticalGroup(
@@ -69,7 +78,9 @@ public class LayoutFrame extends javax.swing.JFrame {
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(btncustomer)
-                .addContainerGap(569, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnOrder)
+                .addContainerGap(528, Short.MAX_VALUE))
         );
 
         headerpanel.setBackground(new java.awt.Color(153, 153, 153));
@@ -122,10 +133,9 @@ public class LayoutFrame extends javax.swing.JFrame {
                 .addComponent(headerpanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(navigationpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(bodypanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(navigationpanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bodypanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -139,9 +149,14 @@ public class LayoutFrame extends javax.swing.JFrame {
         loadItemPanel();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
+        loadOrderPanel();
+    }//GEN-LAST:event_btnOrderActionPerformed
+
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bodypanel;
+    private javax.swing.JButton btnOrder;
     private javax.swing.JButton btncustomer;
     private javax.swing.JPanel headerpanel;
     private javax.swing.JButton jButton1;
@@ -163,6 +178,15 @@ public class LayoutFrame extends javax.swing.JFrame {
         ItemPanel itemPanel = new ItemPanel();
         itemPanel.setSize(bodypanel.getWidth(), bodypanel.getHeight());
          bodypanel.add(itemPanel);
+        bodypanel.repaint();
+        bodypanel.revalidate();
+    }
+    
+    private void loadOrderPanel(){
+        bodypanel.removeAll();
+        OrderPanel orderPanel = new OrderPanel();
+        orderPanel.setSize(bodypanel.getWidth(), bodypanel.getHeight());
+        bodypanel.add(orderPanel);
         bodypanel.repaint();
         bodypanel.revalidate();
     }

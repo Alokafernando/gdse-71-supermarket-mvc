@@ -333,5 +333,4 @@ public class ItemPanel extends javax.swing.JPanel {
         }
         
     }
-    
 }
